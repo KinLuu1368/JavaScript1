@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đổi đơn vị đất</title>
+</head>
+<style>
+    h1 {
+        text-align: center;
+    }
+    form {
+        margin-top: 40px;
+        margin-left: 20px;
+    }
+    input {
+        height: 30px;
+    }
+    button {
+        margin-left: 30%;
+        width: 30%;
+        margin-top: 40px;
+        height: 30px;
+    }
+    p {
+        margin-top: 30px;
+        margin-left: 20%;
+    }
+</style>
+<body>
+    <div class="menu" style="width: 50%; float: left; height: 300px; background-color: rgb(197, 243, 243);">
+        <h1>Đổi đơn vị đất</h1>
+        <form>
+            <label for="met">Nhập mét vuông</label>
+            <input type="text" id="m" placeholder="vd: 3600"> <span>(m<sup>2</sup>)</span> <br>
+        </form>
+        <button onclick="doidv()">Nhập</button>
+        
+    </div>
+    <div class="ketqua" style="width: 50%; float: right; height: 300px; background-color: rgb(209, 177, 196);">
+        <h1>Kết quả</h1>
+        <p id="met1">Mét Vuông: </p>
+        <p id="sao">Sào: </p>
+        <p id="mau">Mẫu/ha: </p>
+    </div>
+</body>
+
+<script>
+    
+
+    function doidv() {
+        var met= document.getElementById("m");
+        console.log(met.value/360);
+        var sao = "";
+        sao = (met.value/360)
+        console.log(sao.value)
+        var mau = met.value / 3600;
+       document.getElementById("met1").innerHTML = 'Mét Vuông:  '  + met.value + ` m<sup>2</sup>`;
+       document.getElementById("sao").innerHTML = 'Sào:  '  + met.value/360 + ` Sào`;
+       document.getElementById("mau").innerHTML = 'Mẫu/ha:  '  + met.value/3600 + ` Mẫu`;
+    }
+</script>
+</html>

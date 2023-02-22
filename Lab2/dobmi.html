@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đo chỉ số BMI</title>
+</head>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .khung {
+        width: 50%;
+        height: 300px;
+        max-width: 600px;
+        background-color: aqua;
+        margin-left: 25%;
+        border-radius: 15px;
+        border: 1px solid black;
+    }
+
+    .nhap {
+        width: 80%;
+    }
+</style>
+
+<body>
+    <div class="khung">
+    <div>
+        <h1 style="text-align: center;">Bảng tính chỉ số BMI</h1>
+        <form style="margin-left: 20%;">
+            <label for="height">Nhập chiều cao (m)</label> <br>
+            <input class="nhap" type="text" name="height" id="h" placeholder="vd: 1.75 (m)"> <br>
+            <label for="weight">Nhập cân nặng (kg)</label> <br>
+            <input class="nhap" type="text" name="weight" id="w" placeholder="vd: 60 (kg)">
+        </form>
+        <button onclick="calBMI()">ENTER</button>
+    </div>
+</div>
+</body>
+
+<script>
+    function calBMI() {
+        var height = document.getElementById("h");
+        var weight = document.getElementById("w");
+        var bmi = weight.value / (Math.pow(height.value, 2));
+        console.log(bmi);
+        if (bmi < 18.5) {
+            alert("Bạn bị thiếu cân")
+        }
+        else if (bmi >= 18.5 && bmi < 25) {
+            alert("Chỉ số BMI của bạn bình thường")
+        }
+        else if (bmi >= 25 && bmi < 30) {
+            alert("Bạn bị thừa cân")
+        }
+        else {
+            alert("Bạn béo phì rồi");
+        }
+
+    }
+
+</script>
+
+</html>
