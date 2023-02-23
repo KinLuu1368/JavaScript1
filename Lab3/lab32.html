@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function xuat() {
+        var so = document.getElementById("bangcc");
+        console.log(so.value);
+        
+        for (var i = 1; i <= 10; i++) {
+            document.writeln(("<p>" +so.value + ' x ' + i + ' = ' + (i*so.value) + "</p>"));
+        }
+        
+    } 
+</script>
+
+<body>
+    <div class="nhap">
+        <h1>Bảng cửu chương</h1>
+        <form action="">
+        <label>Nhập bảng cửu chương: </label>
+        <input type="text" name="" id="bangcc" placeholder="1-9">
+    </form>
+        <button onclick="xuat()">Xuất</button>
+    </div>
+    <div class="xuat">
+        <p id="cuuchuong">hi</p>
+    </div>
+</body>
+
+</html>

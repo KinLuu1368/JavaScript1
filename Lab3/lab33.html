@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<style>
+    body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .maytinh {
+        width: 50%;
+        border: 1px solid black;
+        border-radius: 30px;
+        margin: 200px;
+        max-width: 420px;
+        min-width: 350px;
+    }
+
+    .maytinh>h1 {
+        text-align: center;
+    }
+
+    .show-kq {
+        width: 94%;
+        height: 100px;
+        border-radius: 3px;
+        margin-left: 3%;
+        background-color: rgb(192, 216, 237);
+        
+    }
+
+    .manhinh {
+        width: 96%;
+        height: 40%;
+        margin-left: 2%;
+        border: 1px solid gray;
+        background-color: rgb(192, 216, 237);
+        border-color: transparent;
+        font-size: 20px;
+    }
+
+    .manhinh>.h1 {
+        padding: 90px;
+    }
+
+    .phimbam {
+        margin-left: 4%;
+        margin-top: 30px;
+    }
+
+    .nutnhan {
+        width: 20%;
+        margin-left: 10px;
+        margin-bottom: 20px;
+        padding: 10px 0;
+        font-size: 20px;
+    }
+</style>
+
+<body>
+    <div class="maytinh" width="300px">
+        <h1>MÁY TÍNH</h1>
+        <div class="show-kq">
+            <input class="manhinh" type="text" id="result" disabled>
+            <input class="manhinh" type="text" id="result1" disabled style="margin-top: 10px; text-align: right; margin-right: 10px;">
+        </div>
+        <div class="phimbam">
+            <input type="button" class="nutnhan" value="7" onclick="display('7')"></input>
+            <input type="button" class="nutnhan" value="8" onclick="display('8')"></input>
+            <input type="button" class="nutnhan" value="9" onclick="display('9')"></input>
+            <input type="button" class="nutnhan" value="+" onclick="display('+')"></input>
+            <input type="button" class="nutnhan" value="4" onclick="display('4')"></input>
+            <input type="button" class="nutnhan" value="5" onclick="display('5')"></input>
+            <input type="button" class="nutnhan" value="6" onclick="display('6')"></input>
+            <input type="button" class="nutnhan" value="-" onclick="display('-')"></input>
+            <input type="button" class="nutnhan" value="1" onclick="display('1')"></input>
+            <input type="button" class="nutnhan" value="2" onclick="display('2')"></input>
+            <input type="button" class="nutnhan" value="3" onclick="display('3')"></input>
+            <input type="button" class="nutnhan" value="*" onclick="display('*')"></input>
+            <input type="button" class="nutnhan" value="0" onclick="display('0')"></input>
+            <input type="button" class="nutnhan" value="C" onclick="document.getElementById('result').value = ''; document.getElementById('result1').value = '' "></input>
+            <input type="button" class="nutnhan" value="=" onclick="calculate()"></input>
+            <input type="button" class="nutnhan" value="/" onclick="display('/')"></input>
+        </div>
+    </div>
+</body>
+
+<script>
+    //Hiển thị
+    function display(value) {
+        document.getElementById("result").value += value;
+    }
+    
+    //Xóa màn hình
+    function clear() {
+        document.getElementById("result").value = '';
+        document.getElementById("result1").value = '';
+    }
+    function calculate() {
+        var p = document.getElementById("result").value;
+        var q = eval(p);
+        document.getElementById("result1").value = q;
+    }
+</script>
+
+</html>
