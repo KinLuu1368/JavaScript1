@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //.1
+    const main = [];
+    function sanpham(name, model, cost, quantity) {
+        this.name = name;
+        this.model = model;
+        this.cost = cost;
+        this.quantity = quantity;
+    }
+    //.2
+    let item1 = {
+        name : "Bánh Mỳ",
+        model : "2023",
+        cost: 20,
+        quantity: 30,
+    };
+
+    let item2 = {
+        name : "Bánh Bao",
+        model : "2023",
+        cost: 15,
+        quantity: 30,
+    };
+
+    let item3 = {
+        name : "Bánh Giò",
+        model : "2023",
+        cost: 12,
+        quantity: 30,
+    };
+    //.3
+    main.push(item1);
+    main.push(item2);
+    main.push(item3);
+    for (var i = 0; i < main.length; i++) {
+        console.log('Sản phẩm: ' +main[i].name+ ', Giá: ' +main[i].cost+ ', Model: '+main[i].model+ ', Số lượng: ' +main[i].quantity + '\n')
+    }
+    //.4
+    console.log('Số lượng: ' + main[2].quantity + '\n');
+    //.5
+    let item4 = {
+        name : "Bánh Flan",
+        model : "2023",
+        cost: 20,
+        quantity: 20,
+    };
+    main.push(item4);
+    console.log('Sản phẩm: ' +main[3].name+ ', Giá: ' +main[3].cost+ ', Model: '+main[3].model+ ', Số lượng: ' +main[3].quantity + '\n')
+    
+</script>
+</html>
