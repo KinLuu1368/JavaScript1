@@ -23,12 +23,12 @@
 <script>
     function display() {
         var pro = document.getElementById("pro1").textContent;
-        console.log(pro);
-        var price = document.getElementById("price".value);
-        console.log(price);
-        var quanlity = Number(document.getElementById(qty));
+        var price = document.getElementById("pro1").getAttribute('data-price');
+        var quanlity = document.getElementById("qty").value;
+        var total = Number(price) * Number(quanlity);
+        console.log(total);
         document.getElementById("name").innerHTML = '<span>'+ pro +'</span>';
-        document.getElementById("amount").innerHTML = '<span>'+ price*quanlity + '</span>'; 
+        document.getElementById("amount").innerHTML = '<span>' +"$" + total + '</span>'; 
     }
 </script>
 

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="danhmuc">
+        <h1>DANH MỤC HÀNG HÓA</h1>
+        <table border="1">
+            <tr>
+                <td class="sp">iPhone 9</td>
+                <td class="sp">$2700</td>
+                <td class="sp" id="them"><button onclick='them(this)'>Thêm</button></td>
+            </tr>
+            <tr>
+                <td class="sp">Samsung S22 Ultra</td>
+                <td class="sp">$1500</td>
+                <td class="sp" id="them"><button onclick='them(this)'>Thêm</button></td>
+            </tr>
+            <tr>
+                <td class="sp">Nokia 2023</td>
+                <td class="sp">$1200</td>
+                <td class="sp" id="them"><button onclick='them(this)'>Thêm</button></td>
+            </tr>
+            <tr>
+                <td class="sp">Sony Xperia</td>
+                <td class="sp">$1700</td>
+                <td class="sp" id="them"><button onclick='them(this)'>Thêm</button></td>
+            </tr>
+        </table>
+        <h1>GIỎ HÀNG CỦA BẠN</h1>
+        <table id="cart" border="1">
+
+        </table>
+        <h1>Tổng số tiền: <span id="Total"></span></h1>
+    </div>
+</body>
+
+<script>
+    function them(button) {
+        var row= button.parentElement.parentElement.cloneNode(true);
+        var btnXoa = row.getElementsByTagName("button")[0];btnXoa.innerText = "Xóa";
+        row.getElementsByTagName("button")[0].removeAttribute(them);
+        btnXoa.setAttribute("onclick","xoa(this)");
+        document.getElementById("cart").appendChild(row);
+        console.log(row);
+        tinhtien();
+    }
+
+    function xoa(button) {
+        var row = button.parentElement.parentElement;
+        console.log(row);
+        document.getElementById("cart").removeChild(row);
+        tinhtien();
+    }
+
+    function tinhtien() {
+        var cart = document.getElementById("cart");
+        var row = cart.getElementsByTagName("tr");
+        var tong = 0;
+        for (var i = 0; i < row.length; i++) {
+        var cell = row[i].getElementsByTagName("td");
+        var price = cell[1].innerText.substr(1);
+        tong += 1*price;
+    }
+    document.getElementById("Total").innerText = "$"+tong;
+    }
+</script>
+</html>
