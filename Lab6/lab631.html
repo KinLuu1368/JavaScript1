@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    var hinh0 = new Image();
+    var hinh1 = new Image();
+    function loadImg() {
+        hinh0.src = "img/hinh0.jpg";
+        hinh1.src = "img/hinh2.jpg"; 
+    }
+    function onEvent() {
+        document.hinhcho.src = hinh1.src;
+        document.getElementById("batngo").innerHTML = "Bất ngờ chưa bà dà";
+    }
+    function outEvent() {
+        document.hinhcho.src = hinh0.src;
+        document.getElementById("batngo").innerHTML = "";
+    }
+</script>
+<body onload="loadImg()">
+    <div>
+        <img src="img/hinh2.jpg" name="hinhcho"
+            onmouseover="onEvent()"
+            onmouseout="outEvent()"
+            style="width: 350px;"
+        />
+        <p id="batngo" style="color: red; font-size: 30px;"></p>
+    </div>
+</body>
+</html>

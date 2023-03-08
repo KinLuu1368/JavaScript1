@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="loadAnh()">
+        <img src="img/hinh0.jpg" id="cho" style="width: 300px;">
+        <button onclick="next1()">Next</button>
+        <button onclick="back1()">Back</button>
+</body>
+<script>
+    var anhArr = [];
+    var j = 0;
+    function loadAnh() {
+        for (let i = 0; i < 5; i++) {
+            anhArr[i] = new Image();
+            anhArr[i] = "img/hinh"+i+".jpg"
+        }
+    }
+
+    function next1() {
+        if (j < anhArr.length - 1) j++;
+        document.getElementById("cho").src = anhArr[j];
+        console.log(anhArr[j]) 
+    }
+    function back1() {
+        if (j > 0) j--;    
+        document.getElementById("cho").src = anhArr[j];
+    }
+</script>
+</html>
