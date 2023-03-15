@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        width: 940px;
+        height: 560px;
+        background-color: rgb(141, 197, 197);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .dangnhap {
+        width: 980px;
+        padding-top: 40px; 
+    }
+    .dangnhap> h1 {
+        text-align: center;
+        font-size: 45px;
+    }
+
+    .formDN {
+        width: 980px;
+        height: 250px;
+        margin-top: 40px;
+    }
+    .formDN> form> input.tkmk {
+        margin-top: 30px;
+        height: 40px;
+        width: 50%; 
+        margin-left: 23%;
+        border: 0;
+        padding-left: 20px;
+        border-radius: 20px;
+        font-size: 20px;
+    }
+
+    .formDN> form> input.tkmk:focus {
+        border: 0px solid transparent;
+        outline: none;
+        background-color: rgb(240, 255, 255);
+    }
+
+    .formDN> form> input[type="checkbox"] {
+        margin-left: 42%;
+        margin-top: 45px;
+    }
+    .formDN> form> input[type="checkbox"]> span {
+        font-weight: bold;
+    }
+
+    .btn {
+        height: 50px;
+        width: 240px;
+        margin-left: 360px;
+        background-color: azure;
+        border-radius: 30px;
+    }
+
+    .btn> button {
+        height: 50px;
+        width: 240px;
+        border-radius: 30px;
+        border: 0;
+    }
+    
+    .btn> button> a {
+        font-size: 20px;
+        padding: 12px 54px;
+        border-radius: 30px;
+        text-decoration: none;
+        color: black;
+    }
+    
+
+
+</style>
+<body>
+    <div class="dangnhap">
+        <h1>ĐĂNG NHẬP</h1>
+    </div>
+    <div class="formDN">
+        <form>
+            <input class="tkmk" id="tk" type="text" placeholder="Tên đăng nhập"> <br>
+            <input class="tkmk" id="mk" type="password" placeholder="Mật Khẩu"><br>
+            <input type="checkbox" name="" id=""><span>Nhớ mật khẩu?</span>
+        </form>
+    </div>
+    <div class="btn">
+        <button onclick="dangnhap()"><a id="chuyen" href="#" target="window">ĐĂNG NHẬP</a></button>
+    </div>
+</body>
+<script>
+    var tk = document.getElementById("tk");
+    var mk = document.getElementById("mk");
+    function dangnhap() {
+        if (tk.value == "") {
+            alert("Vui lòng nhập tài khoản!");
+            tk.focus();
+        }
+        if (mk.value == "") {
+            alert("Vui lòng nhập Mật khẩu!");
+            mk.focus();
+        }
+        if (tk.value != "" && mk.value != "") {
+            document.getElementById("chuyen").setAttribute("href", "modau.html")
+        }
+    }
+</script>
+</html>

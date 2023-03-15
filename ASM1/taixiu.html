@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bầu cua</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        width: 940px;
+        height: 560px;
+        background-color: rgb(141, 197, 197);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .head {
+        width: 980px;
+        height: 200px;
+        background-color: rgb(178, 216, 230);
+    }
+
+    .col30 {
+        width: 200px;
+        float: left;
+    }
+
+    .col30>.hinhanh {
+        width: 160px;
+        height: 160px;
+        margin: 20px;
+    }
+
+    .col30>.hinhanh>img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .banco {
+        width: 700px;
+        margin-left: 30px;
+        float: left;
+    }
+
+    .banco>.chon {
+        width: 30%;
+        float: left;
+    }
+
+    .banco>.chon>button {
+        margin: 20px;
+        background-size: 160px 160px;
+        width: 160px;
+        height: 160px;
+    }
+
+    .luachon {
+        width: 200px;
+        height: 300px;
+        margin-top: -150px;
+        margin-left: -20px;
+        background-color: aliceblue;
+        float: left;
+    }
+
+    .col50 {
+        width: 30%;
+        height: 400px;
+        float: left;
+        margin-left: 30px;
+    }
+
+    .col50>button {
+        width: 282px;
+        height: 300px;
+        margin-top: 50px;
+    }
+
+    .bangdiem>p {
+        font-size: 30px;
+        margin-left: 30px;
+
+    }
+</style>
+
+<body onload="LoadAnh()">
+    <div class="head">
+        <div class="col30" style="margin-left: 30px;">
+            <div class="hinhanh">
+                <img id="nut1" src="./image/nut1.png" alt="">
+            </div>
+        </div>
+        <div class="col30">
+            <div class="hinhanh">
+                <img id="nut2" src="./image/nut2.png" alt="">
+            </div>
+        </div>
+        <div class="col30">
+            <div class="hinhanh">
+                <img id="nut3" src="./image/nut3.png" alt="">
+            </div>
+        </div>
+        <div class="col30" style="margin-left: 50xp; width: 300px;">
+            <div class="money" style="float: right; margin-top: -10px;">
+                <h2>MONEY: <span id="money">1000</span></h2>
+            </div>
+            <div class="tongdiem"
+                style="clear:both; height: 40px;width: 280px;margin-top: 80px;margin-left: 20px ;background-color: white;">
+                <h1 style="text-align: center;">KẾT QUẢ: <span id="KQ" style="color: red;">XỈU</span></h1>
+            </div>
+        </div>
+    </div>
+    <div class="datgame">
+        <div class="col50">
+            <button onclick="bamtai()" id="tai">
+                <h1>TÀI</h1>
+            </button>
+        </div>
+        <div class="col50">
+            <button onclick="bamxiu()" id="xiu">
+                <h1>XỈU</h1>
+            </button>
+        </div>
+        <div class="col50">
+            <div class="bangdiem"
+                style="height: 160px; margin-top: 50px;border: 2px solid black;background-color: rgb(106, 106, 255);">
+                <p style="margin-top: 20px;">TÀI: <span id="datTai">0</span></p>
+                <P>XỈU: <span id="datXiu">0</span></P>
+                <button style="float: right; margin-top: -30px; margin-right: 10px; background-color: aqua;"
+                    onclick="clearAll()">Xóa</button>
+            </div>
+            <div class="xacnhan" style="clear: both; height: 80px; margin-top: 20px;">
+                <input type="text" id="tienDat" placeholder="Mức đặt"
+                    style="margin-left: 45px; height: 30px;width: 190px;">
+                <button style="width: 200px; height: 60px; margin-top: 22px; margin-left: 45px;" onclick="run()">XÁC
+                    NHẬN</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+<script>
+    var hinhdiem = [];
+    function LoadAnh() {
+        for (let i = 0; i < 7; i++) {
+            hinhdiem[i] = new Image();
+            hinhdiem[i] = "./image/nut" + i + ".png";
+        }
+    }
+
+    //Đặt tiền và in tiền lên bảng
+    var tienDatTai = 0;
+    var money = 1000;
+    function bamtai() {
+        var tiendat = Number(document.getElementById("tienDat").value);
+        if (money < tiendat) {
+            alert("Không đủ tiền");
+        } else {
+            tienDatTai += tiendat;
+            money -= tiendat;
+            document.getElementById("money").innerHTML = money;
+            document.getElementById("datTai").innerHTML = tienDatTai;
+        }
+    }
+
+    var tienDatXiu = 0;
+    function bamxiu() {
+        var tiendat = Number(document.getElementById("tienDat").value);
+        if (money < tiendat) {
+            alert("Không đủ tiền");
+        } else {
+        tienDatXiu += tiendat;
+        money -= tiendat;
+        document.getElementById("money").innerHTML = money;
+        document.getElementById("datXiu").innerHTML = tienDatXiu;
+        }
+    }
+
+    function clearAll() {
+        tienDatTai = 0;
+        document.getElementById("datTai").innerHTML = tienDatTai;
+        tienDatXiu = 0;
+        document.getElementById("datXiu").innerHTML = tienDatXiu;
+    }
+
+
+
+    function run() {
+        //Đảo xúc xắc
+        var xucxac = [];
+        for (var i = 0; i < 3; i++) {
+            var e = Math.floor(Math.random() * 5) + 1;
+            xucxac.push(e);
+        }
+        //Xuất hình & kết quả
+        console.log(xucxac);
+        document.getElementById("nut1").src = hinhdiem[xucxac[0]];;
+        document.getElementById("nut2").src = hinhdiem[xucxac[1]];;
+        document.getElementById("nut3").src = hinhdiem[xucxac[2]];;
+
+        var kq = document.getElementById("KQ");
+        var tong = 0;
+        for (let x = 0; x < 3; x++) {
+            tong += Number(xucxac[x]);
+        }
+        console.log(tong);
+        var ketqua = tong > 9 ? "TÀI" : "XỈU";
+        kq.innerHTML = ketqua;
+
+        //Xét Kết quả
+        if (ketqua == "TÀI") {
+            money += (tienDatTai*2);
+        } else {
+            money += (tienDatXiu*2);
+        }
+        document.getElementById("money").innerHTML = money;
+        clearAll();
+    }
+</script>
+
+</html>

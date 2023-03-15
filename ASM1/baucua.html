@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bầu cua</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        width: 940px;
+        height: 560px;
+        background-color: rgb(141, 197, 197);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .head {
+        width: 980px;
+        height: 200px;
+        background-color: rgb(178, 216, 230);
+    }
+
+    .col30 {
+        width: 200px;
+        float: left;
+    }
+
+    .col30>.hinhanh {
+        width: 160px;
+        height: 160px;
+        margin: 20px;
+        background-color: rgb(91, 91, 255);
+        opacity: 80%;
+        border-radius: 4px;
+    }
+
+    .col30>.hinhanh>img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .banco {
+        width: 700px;
+        margin-left: 30px;
+        float: left;
+    }
+
+    .banco>.chon {
+        width: 30%;
+        float: left;
+    }
+
+    .banco>.chon>button {
+        margin: 20px;
+        background-size: 160px 160px;
+        width: 160px;
+        height: 160px;
+    }
+
+    .luachon {
+        width: 200px;
+        height: 350px;
+        margin-top: -175px;
+        margin-left: -20px;
+        background-color: aliceblue;
+        float: left;
+    }
+</style>
+
+<body onload="LoadHinh()">
+    <div class="head">
+        <div class="col30" style="margin-left: 30px;">
+            <div class="hinhanh">
+                <img id="nut1" src="./image/hinh1.png" alt="">
+            </div>
+        </div>
+        <div class="col30">
+            <div class="hinhanh">
+                <img id="nut2" src="./image/hinh2.png" alt="">
+            </div>
+        </div>
+        <div class="col30">
+            <div class="hinhanh">
+                <img id="nut3" src="./image/hinh3.png" alt="">
+            </div>
+        </div>
+        <div class="col30" style="margin-left: 50xp; width: 300px;">
+            <div class="money" style="float: right; margin-top: -10px;">
+                <h2>MONEY: <span id="money">1000</span></h2>
+            </div>
+            <div class="xacnhan" style="clear: both; height: 80px;">
+                <input id="tienDat" type="text" placeholder="Mức đặt" style="margin-left: 45px; height: 30px;">
+                <button style="width: 250px; height: 60px; margin-top: 22px; margin-left: 45px;" onclick="run()">XÁC
+                    NHẬN</button>
+            </div>
+        </div>
+    </div>
+    <div class="banco">
+        <div class="chon">
+            <button style="background-image: url(./image/hinh1.png); " onclick="bam1()"></button>
+
+        </div>
+        <div class="chon">
+            <button style="background-image: url(./image/hinh2.png); " onclick="bam2()"></button>
+        </div>
+        <div class="chon">
+            <button style="background-image: url(./image/hinh3.png); " onclick="bam3()"></button>
+        </div>
+    </div>
+    <div class="banco">
+        <div class="chon">
+            <button style="background-image: url(./image/hinh4.png); " onclick="bam4()"></button>
+        </div>
+        <div class="chon">
+            <button style="background-image: url(./image/hinh5.png); " onclick="bam5()"></button>
+        </div>
+        <div class="chon">
+            <button style="background-image: url(./image/hinh6.png); " onclick="bam6()"></button>
+        </div>
+    </div>
+    <div class="luachon">
+        <h4 style="text-align: center;">Bảng chỉ số chọn</h4>
+        <div style="margin-left: 30px;">
+            <p>Nai: <span id="so1">0</span></p>
+            <p>Bầu: <span id="so2">0</span></p>
+            <p>Gà: <span id="so3">0</span></p>
+            <p>Cá: <span id="so4">0</span></p>
+            <p>Cua: <span id="so5">0</span></p>
+            <p>Tôm: <span id="so6">0</span></p>
+            <p>Tổng Tiền: <span id="tong">0</span></p>
+            </p>
+        </div>
+        <button onclick="clearAll()" style="float: right; margin-top: -18px; margin-right: 10px; border: 1px solid blue;">XÓA</button>
+    </div>
+</body>
+
+<script>
+    var hinhdiem = [];
+    function LoadHinh() {
+        for (let i = 0; i < 7; i++) {
+            hinhdiem[i] = new Image();
+            hinhdiem[i] = "./image/hinh" + i + ".png";
+        }
+    }
+
+    var money = 1000;
+    var tongtiendat = 0;
+    var tienthang = 0;
+
+    var tienDat1 = 0;
+    function bam1() {
+        var tiendat = Number(document.getElementById("tienDat").value);
+        if (money < (tongtiendat + 100)) {
+            alert("Không đủ tiền");
+        } else {
+            tienDat1 += tiendat;
+            tongtiendat += tiendat;
+            document.getElementById("tong").innerHTML = tongtiendat;
+            document.getElementById("so1").innerHTML = tienDat1
+        }
+    }
+
+    var tienDat2 = 0;
+    function bam2() {
+        var tiendat = Number(document.getElementById("tienDat").value);
+        if (money < (tongtiendat + 100)) {
+            alert("Không đủ tiền");
+        } else {
+            tienDat2 += tiendat;
+            tongtiendat += tiendat;
+            document.getElementById("tong").innerHTML = tongtiendat;
+            document.getElementById("so2").innerHTML = tienDat2;
+        }
+    }
+
+    var tienDat3 = 0;
+    function bam3() {
+        var tiendat = Number(document.getElementById("tienDat").value);
+        if (money < (tongtiendat + 100)) {
+            alert("Không đủ tiền");
+        } else {
+            tienDat3 += tiendat;
+            tongtiendat += tiendat;
+            document.getElementById("tong").innerHTML = tongtiendat;
+            document.getElementById("so3").innerHTML = tienDat3;
+        }
+    }
+    
+    var tienDat4 = 0;
+    function bam4() {
+        var tiendat = Number(document.getElementById("tienDat").value);
+        if (money < (tongtiendat + 100)) {
+            alert("Không đủ tiền");
+        } else {
+            tienDat4 += tiendat;
+            tongtiendat += tiendat;
+            document.getElementById("tong").innerHTML = tongtiendat;
+            document.getElementById("so4").innerHTML = tienDat4;
+        }
+    }
+
+    var tienDat5 = 0;
+    function bam5() {
+        var tiendat = Number(document.getElementById("tienDat").value);
+        if (money < (tongtiendat + 100)) {
+            alert("Không đủ tiền");
+        } else {
+            tienDat5 += tiendat;
+            tongtiendat += tiendat;
+            document.getElementById("tong").innerHTML = tongtiendat;
+            document.getElementById("so5").innerHTML = tienDat5;
+        }
+    }
+
+    var tienDat6 = 0;
+    function bam6() {
+        var tiendat = Number(document.getElementById("tienDat").value);
+        if (money < (tongtiendat + 100)) {
+            alert("Không đủ tiền");
+        } else {
+            tienDat6 += tiendat;
+            tongtiendat += tiendat;
+            document.getElementById("tong").innerHTML = tongtiendat;
+            document.getElementById("so6").innerHTML = tienDat6;
+        }
+    }
+
+    //Xóa bảng đặt
+    function clearAll() {
+        tienDat1 = 0;
+        tienDat2 = 0;
+        tienDat3 = 0;
+        tienDat4 = 0;
+        tienDat5 = 0;
+        tienDat6 = 0;
+        document.getElementById("so1").innerHTML = tienDat1;
+        document.getElementById("so2").innerHTML = tienDat2;
+        document.getElementById("so3").innerHTML = tienDat3;
+        document.getElementById("so4").innerHTML = tienDat4;
+        document.getElementById("so5").innerHTML = tienDat5;
+        document.getElementById("so6").innerHTML = tienDat6;
+        document.getElementById("tong").innerHTML = tienDat6;
+        tongtiendat = 0;
+        tienthang = 0;
+    }
+
+    function run() {
+        //Đảo xúc xắc
+        var xucxac = [];
+        for (var i = 0; i < 3; i++) {
+            var e = Math.floor(Math.random() * 5) + 1;
+            xucxac.push(e);
+        }
+        //Xuất hình kết quả
+        console.log(xucxac);
+        document.getElementById("nut1").src = hinhdiem[xucxac[0]];
+        document.getElementById("nut2").src = hinhdiem[xucxac[1]];
+        document.getElementById("nut3").src = hinhdiem[xucxac[2]];
+        //Xét đặt
+        
+        for (var i = 0; i < 3; i++) {
+                if (xucxac[i] == "1") {
+                    tienthang += (tienDat1);
+                } else if (xucxac[i] == "2") {
+                    tienthang += (tienDat2);
+                } else if (xucxac[i] == "3") {
+                    tienthang += (tienDat3);
+                } else if (xucxac[i] == "4") {
+                    tienthang += (tienDat4);
+                } else if (xucxac[i] == "5") {
+                    tienthang += (tienDat5);
+                } else if (xucxac[i] == "6") {
+                    tienthang += (tienDat6);
+                }
+        }
+        console.log(tongtiendat);
+        console.log(tienthang);
+        if (tienthang >= tongtiendat ) {
+            money += tienthang;
+            document.getElementById("money").innerHTML = money;
+        } else {
+            money -= tongtiendat;
+            money += tienthang;
+            document.getElementById("money").innerHTML = money;
+        }
+        clearAll();
+    }
+
+</script>
+
+</html>
