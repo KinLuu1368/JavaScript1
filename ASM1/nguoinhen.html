@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link rel="stylesheet" href="gamenhen.css">
+    <script src="dangnhap.js"></script>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+       
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    header {
+        margin-top: 0px;
+        padding: 10px;
+        height: 100px;
+        background-color: rgb(28, 209, 158);
+    }
+
+    header>h1 {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    article {
+        background-color: antiquewhite;
+        height: 35px;
+    }
+
+    article>a {
+        text-decoration: none;
+        margin-left: 30px;
+        color: black;
+        font-weight: bold;
+    }
+
+    article>a:hover {
+        color: brown;
+    } 
+
+
+    .output {
+        width: 700px;
+        height: 700px;
+        border: 1px solid black;
+        margin: auto;
+        text-align: center;
+        background-image: url(city.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-color: rgb(204, 204, 204);
+        cursor: crosshair;
+        opacity: 90%;
+    }
+
+    .box {
+        width: 180px;
+        height: 130px;
+        position: relative;
+        top: 50px;
+        left: 20%;
+        background-image: url(nguoinhen1.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    .message {
+        text-align: center;
+        padding: 10px;
+        font-size: 1.3em;
+    }
+
+    .diem {
+        float: left;
+        margin-left: 20px;
+        background-color: rgb(251, 62, 62);
+        color: white;
+        padding: 0 10px;
+        border-radius: 20px;
+    }
+
+    .timer {
+        float: right;
+        margin-right: 20px;
+        background-color: rgb(99, 99, 226);
+        color: aliceblue;
+        padding: 0 10px;
+        border-radius: 20px;
+    }
+
+    .level {
+        float: right;
+        margin-right: 20px;
+        background-color: rgb(0, 0, 162);
+        color: aliceblue;
+        padding: 0 10px;
+        border-radius: 20px;
+    }
+
+    .play {
+        float: left;
+        position: relative;
+        top: 300px;
+        left: 140px;
+        background-color: rgb(249, 36, 78);
+        border-radius: 20px;
+        color: rgb(202, 229, 243);
+        cursor: default;
+    }
+
+    .play:hover {
+        background-color: rgb(255, 3, 53);
+    }
+
+    .play>h1 {
+        padding: 0 20px;
+    }
+
+    .Endgame {
+        cursor: default;
+        width: 500px;
+        height: 400px;
+        margin-left: 100px;
+        margin-top: 110px;
+        background-color: whitesmoke;
+        float: left;
+        position: relative;
+        border-radius: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: red;
+        border: 4px dotted dodgerblue;
+        display: none;
+    }
+
+    #topScore {
+        float: left;
+        position: absolute;
+        padding: 0 10px;
+        border-radius: 20px;
+        top: 150px;
+        left: 20px;
+        text-align: center;
+    }
+
+    #replay {
+        border: 2px solid red;
+        float: left;
+        position: absolute;
+        padding: 10px 20px;
+        border-radius: 40px;
+        top: 220px;
+        left: 160px;
+    }
+
+    #replay:hover {
+        border: 2px solid red;
+        background-color: red;
+        color: aliceblue;
+    }
+
+    /* Chức năng thêm (đổi điểm lấy thời gian)*/
+    .chucNang> h1 {
+        clear: both;
+        float: left;
+        position: absolute;
+        padding: -10px;
+        border-radius: 20px;
+        background-color: rgb(174, 196, 10);
+        top: 310px;
+        left: 110px;
+    }
+    .chucNang> h1:hover {
+        background-color: rgb(0, 0, 139);
+    }
+    .laydiem {
+        float: left;
+        position: relative;
+        padding: 10px 20px;
+        background-color: rgb(190, 65, 65);
+        margin-left: 20px;
+        color: aliceblue;
+        border-radius: 30px;
+        margin-top: 0px;
+    }
+
+    .laydiem:hover {
+        background-color: rgb(111, 13, 13);
+    }
+    #close:hover {
+        color: #00204b;
+    }
+
+    .TimePlus {
+        cursor: default;
+        width: 500px;
+        height: 400px;
+        margin-left: 100px;
+        margin-top: 110px;
+        background-color: whitesmoke;
+        float: left;
+        position: relative;
+        border-radius: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: red;
+        border: 4px dotted dodgerblue;
+        display: none;
+    }
+</style>
+
+
+<body>
+    <header>
+        <h1 style="font-size: 45px;">VUI CHƠI CHƠI VUI</h1>
+    </header>
+
+    <article style="font-size: 25px;">
+        <a href="index.html" target="window">HOME</a>
+        <a href="gamehay.html">GAME HAY</a>
+       
+    </article>
+
+    <div style="clear: both;"></div>
+    <div class="output">
+        <div class="point">
+            <h1 class="diem">Score: <span id="score">0</span></h1>
+            <h1 class="timer">Time 0:<span id="time1">0</span></h1>
+            <h1 class="level">Level: <span id="level1">1</span></h1>
+        </div>
+
+        <div class="play">
+            <h1>START</h1>
+        </div>
+
+        <div class="Endgame">
+            <h1>OUT OF TIME</h1>
+            <h1 class="level">Level: <span id="level2"></span></h1>
+            <h1 class="diem">Score: <span id="score1"></span></h1>
+            <h1 id="topScore">Best Score: <span id="max"></span></h1>
+            <h1 id="replay">CHƠI LẠI</h1>
+            <div class="chucNang">
+                <h1 class="level" id="uptime">GET MORE TIME</h1>
+            </div>
+        </div>
+
+        <div class="TimePlus">
+            <h1 style="font-size:30px;">ĐỔI ĐIỂM KỶ LỤC LẤY THỜI GIAN</h1>
+            <h2>1000 điểm = 10s</h2>
+            <h2>2000 điểm = 30s</h2>
+            <h2>3000 điểm = 60s</h2>
+            <h1>LỰA CHỌN CỦA BẠN</h1>
+            <h2 class="laydiem" id="btn1000" style="margin-left: 85px;">1000</h2>
+            <h2 class="laydiem" id="btn2000">2000</h2>
+            <h2 class="laydiem" id="btn3000">3000</h2>
+            <h2 style="clear: both; text-decoration: underline;" id="close">CLOSE</h2>
+        </div>
+
+
+    </div>
+    <div class="message"></div>
+
+
+
+    <footer style="position: absolute; width: 100%;;bottom: 0px; background-color: rgb(43, 216, 132);">
+        <div>
+            <p style="text-align: center;">GAME ASSIGNMENT MADE BY KIENLUU PS27948</p>
+        </div>
+    </footer>
+</body>
+<script>
+    const output = document.querySelector('.output');
+    const message = document.querySelector(".message");
+    message.textContent = "HÃY BẮN VÀO NGƯỜI NHỆN NGÁO ĐÁ";
+    const box = document.createElement('div');
+    const playgame = document.querySelector('.play');
+    const game = {
+        timer: 0,
+        start: null
+    };
+    box.classList.add('box');
+    output.append(box);
+
+    function ranNum(max) {
+        return Math.floor(Math.random() * max);
+    }
+
+    function addBox() {
+        message.textContent = 'Click it...';
+        game.start = new Date().getTime();
+        box.style.display = 'block';
+        box.style.left = ranNum(500) + 'px';
+        box.style.top = ranNum(500) + 'px';
+    }
+
+    //set Timer 
+    var playTime = 60000;
+    function timeCount() {
+        var timeCount1 = playTime / 1000;
+        var clock = setInterval(function () {
+            timeCount1 -= 1;
+            document.getElementById("time1").innerHTML = timeCount1;
+            if (timeCount1 == 0) {
+                clearInterval(clock);
+
+            }
+        }, 1000);
+    }
+
+    //get best score
+    var maxScore = 0;
+    function getBestScore(score) {
+        if (score > maxScore) {
+            maxScore = score;
+        }
+        document.getElementById("max").innerHTML = maxScore;
+    }
+
+    //Level up
+    function levelUp(score) {}
+
+    //Game source
+    var count = 0;
+    var score = 0;
+    var countScore = 1000;
+    var level = 1;
+    var speedUp = 3000;
+    function play() {
+        box.addEventListener('click', () => {
+            box.textContent = "";
+            box.style.display = 'none';
+            game.timer = setTimeout(addBox, ranNum(speedUp));
+            if (!game.start) {
+                message.textContent = 'Loading....';
+            } else {
+                const cur = new Date().getTime();
+                const dur = (cur - game.start) / 1000;
+                if (dur < 0.7) {
+                    score += 200;
+                    document.getElementById("score").innerHTML = score;
+                    console.log(score);
+                } else if (dur < 1) {
+                    score += 150;
+                    score.innerHTML = score;
+                    document.getElementById("score").innerHTML = score;
+                    console.log(score);
+                } else if (dur < 1.5) {
+                    score += 50;
+                    score.innerHTML = score;
+                    document.getElementById("score").innerHTML = score;
+                    console.log(score);
+                }
+                message.textContent = 'It took ' + dur + ' second to click';
+            }
+            console.log(score + 1);
+            if (score >= countScore) {
+                if (level < 3) {
+                    speedUp -= 500;
+                } else {
+                    speedUp -= 50;
+                }
+                level += 1;
+                countScore += 1000;
+                document.getElementById("level1").innerHTML = level;
+                console.log(a);
+            }
+        });
+        var breaktime = setInterval(() => {
+            document.getElementById("score1").innerHTML = score;
+            document.getElementById("level2").innerHTML = level;
+            document.querySelector(".Endgame").style.display = "block";
+            box.style.display = "none";
+            getBestScore(score);
+            clearInterval(breaktime);
+            console.log("a");
+            count++;
+        }
+            , playTime);
+        if (count == 2) {
+            return (true);
+        }
+
+
+    }
+
+    function startGame() {
+        playgame.style.display = "none";
+        play();
+        timeCount();
+
+    }
+
+    function playAgain() {
+        playTime = 60000;
+        timeCount();
+        score = 0;
+        level = 1;
+        count = 1;
+        countScore = 1000;
+        document.getElementById("level1").innerHTML = level;
+        document.getElementById("score").innerHTML = score;
+        document.querySelector(".Endgame").style.display = "none";
+        box.style.display = "block";
+        var breaktime = setInterval(() => {
+            getBestScore(score);
+            document.getElementById("score1").innerHTML = score;
+            document.getElementById("level2").innerHTML = level;
+            document.querySelector(".Endgame").style.display = "block";
+            clearInterval(breaktime);
+            console.log("a");
+            count++;
+        }, playTime);
+
+    }
+
+    playgame.addEventListener('click', () => {
+        startGame();
+    });
+
+    var replay = document.getElementById("replay");
+    replay.addEventListener('click', () => {
+        playAgain();
+    });
+
+    //Open trade time and close
+    var uptimeBtn = document.getElementById("uptime");
+    uptimeBtn.addEventListener("click", () => {
+        document.querySelector(".Endgame").style.display = "none";
+        document.querySelector(".TimePlus").style.display = "block";
+    });
+    var closeTrade = document.getElementById("close");
+    closeTrade.addEventListener("click", () =>{
+        document.querySelector(".Endgame").style.display = "block";
+        document.querySelector(".TimePlus").style.display = "none";
+    });
+    //Trade time
+    function break1() {
+        var breaktime = setInterval(() => {
+            getBestScore(score);
+            document.getElementById("score1").innerHTML = score;
+            document.getElementById("level2").innerHTML = level;
+            document.querySelector(".Endgame").style.display = "block";
+            clearInterval(breaktime);
+            console.log("a");
+            count++;
+        }, playTime);
+        playTime = 5000;
+    }
+    var btn1000 = document.getElementById("btn1000");
+    console.log(btn1000);
+    var btn2000 = document.getElementById("btn2000");
+    console.log(btn2000);
+    var btn3000 = document.getElementById("btn3000");
+    console.log(btn3000);
+    btn1000.addEventListener("click", () => {
+        if(maxScore >= 1000) {
+            document.querySelector(".TimePlus").style.display = "none";
+            maxScore -= 1000;
+            playTime = 10000;
+            timeCount();
+            break1();
+        }
+    });
+    btn2000.addEventListener("click", () => {
+        if(maxScore >= 2000) {
+            document.querySelector(".TimePlus").style.display = "none";
+            maxScore -= 2000;
+            playTime = 30000;
+            timeCount();
+            break1();
+        } 
+    });
+    btn3000.addEventListener("click", () => {
+        if(maxScore >= 3000) {
+            document.querySelector(".TimePlus").style.display = "none";
+            maxScore -= 3000;
+            playTime = 60000;
+            timeCount();
+            break1();
+        }
+    });
+    
+</script>
+</html>

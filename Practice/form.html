@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="dangnhap">
+        <h1>Đăng nhập</h1>
+        <form>
+            <label for="tk">Tài Khoản</label>
+            <input type="text" id="tk"> <br> <br>
+            <label for="mk">Mật Khẩu</label>
+            <input type="password" id="mk"> <br><br>
+        </form>
+        <button id="btnDN" onclick="dangnhap()">Đăng nhập</button>
+    </div>
+
+    <div class="dangky">
+        <h1>Đăng Ký</h1>
+        <form>
+            <label for="newTK">Nhập tài khoản</label>
+            <input type="text" id="newTK"> <br> <br>
+            <label for="newMk">Nhập mật khẩu</label>
+            <input type="text" id="newMK"> <br> <br>
+            <label for="reMk">Nhập lại mật khẩu</label>
+            <input type="text" id="reMK"> <br> <br>
+        </form>
+        <button id="btnDK" onclick="dangky1()">Đăng Ký</button>
+    </div>
+</body>
+<script>
+    //Đăng nhập
+    function dangnhap() {
+        var tk = document.querySelector('#tk');
+        var mk = document.querySelector('#mk');
+        if (tk.value == "") {
+            alert("Nhập tk");
+            tk.focus();
+        } else if (mk.value == "") {
+            alert("Nhập mk");
+            mk.focus();
+        } else {
+            alert("đăng nhập thành công");
+            tk.value = '';
+            mk.value = '';
+        }
+    }
+
+    //Đăng ký
+    function dangky1() {
+        var nTK = document.querySelector('#newTK');
+        var nMK = document.querySelector('#newMK');
+        var reMK = document.querySelector('#reMK');
+        if (nTK.value == '') {
+            alert('nhập tk đi cha');
+            nTK.focus();
+        } else if (nMK.value == '') {
+            alert('nhập mật khẩu nữa cha');
+            nMK.focus();
+        } else if (reMK.value == '') {
+            alert('nhập lại mật khẩu nè cha');
+            reMK.focus();
+        } else {
+            alert("đăng nhập thành công");
+            nTK.value = '';
+            nMK.value = '';
+            reMK.value = '';
+        }
+    }
+</script>
+</html>

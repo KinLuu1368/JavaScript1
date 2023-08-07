@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="name">Họ tên sv</label> <br>
+        <input type="text" name="" id="name"> <br>
+        <label for="mail">Địa chỉ mail</label> <br>
+        <input type="text" name="" id="mail"> <br>
+        <label for="class">Lớp học</label> <br>
+        <select name="class" id="class">
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>
+        <div>
+            <label for="subject">Môn học</label> <br>
+            <input type="checkbox" name="" id="">JS Basic <br>
+            <input type="checkbox" name="" id="">J1 <br>
+            <input type="checkbox" name="" id="">J2 <br>
+        </div>
+    </form>
+    <button id="save" onclick="check()">Save</button>
+    <button id="cancel">Cancel</button>
+</body>
+<script>
+    //check form
+    function check() {
+        var name = document.querySelector('#name');
+        if (name.value.lenght < 5) {
+            console.log(1)
+        } else {
+            console.log(2)
+        }
+    }
+</script>
+</html>

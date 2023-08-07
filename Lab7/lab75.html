@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="formDH">
+            <h1>ĐẶT HÀNG</h1>
+            <form action="">
+                <label for="sp" style="margin-right: 30px;">Sản phẩm</label>
+                <input type="text" id="sp"> <br><br>
+                <label for="lh" style="margin-right: 65px;">Loại</label>
+                <select name="info" id="lh">
+                    <option value="1" id="l1">Loại 1</option>
+                    <option value="2" id="l2">Loại 2</option>
+                </select><br> <br>
+                <label for="dgia" style="margin-right: 42px;">Đơn giá</label>
+                <input type="text" id="dgia"> <br> <br>
+                <label for="">Nơi nhận hàng</label>
+                <input type="radio" name="nhanhang" id="noithanh" onclick="hienthi(false)"> Nội thành
+                <input type="radio" name="nhanhang" id="ngthanh" onclick="hienthi(true)"> Ngoại thành 
+                <br> <br>
+                <div style="display: none;" id="vanchuyen">
+                    <label for="">Phí vận chuyển</label>
+                    <input type="text" id="fee"><br>
+                </div>
+                <hr style="width: 300px; float: left;">
+            </form>
+            <div style="clear: both;"></div>
+            <button onclick="checkdulieu()">Đặt mua</button>
+        </div>
+    </div>
+</body>
+<script>
+    function hienthi(visible) {
+        var vanchuyen = document.getElementById("vanchuyen");
+        console.log(vanchuyen);
+        vanchuyen.style.display = visible ? "" : "none";
+    }
+    var sp = document.getElementById("sp");
+    var dgia = document.getElementById("dgia");
+    var fee = document.getElementById("fee");
+    var noithanh = document.querySelector("#noithanh");
+    var ngthanh = document.querySelector("#ngthanh");
+    function checkdulieu() {
+        if (sp.value == "") {
+            alert("Vui lòng nhập sản phẩm");
+            sp.focus();
+        } else if (dgia.value == "") {
+            alert("Vui lòng nhập đơn giá");
+            dgia.focus();
+        } 
+        if (noithanh.checked == true || ngthanh.checked == true) {
+            if (ngthanh.checked == true) {
+                if (fee.value == "") {
+                    alert("Vui lòng nhập phí vận chuyển");
+                    fee.focus();
+                } else {
+                    alert("Đặt hàng thành công");
+                }
+            } else {
+                alert("Đặt hàng thành công");
+            }
+        }
+
+    }
+</script>
+</html>

@@ -18,13 +18,14 @@
 <body>
     <div class="box" ondrop="dDrop()" ondragover="nDop()">1
         <div id="dragme" draggable="true" ondragstart="dStart()" draggable="true">
-            Drag Me Please!
+            <span id="keo" style="font-size: 40px;">1</span>
         </div>
     </div>
     <div class="box" ondrop="dDrop()" ondragover="nDop()">2</div>
 </body>
 <script>
     let holderItem;
+    var keo = 1;
     function dStart() {
         holderItem = event.target;
     }
@@ -35,6 +36,8 @@
         event.preventDefault();
         if (event.target.className == "box") {
             event.target.appendChild(holderItem);
+            keo+=1;
+            document.getElementById("keo").innerHTML = keo;
         }
     }
 </script>

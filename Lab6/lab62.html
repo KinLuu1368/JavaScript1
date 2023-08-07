@@ -11,12 +11,13 @@
     button {
         width: 80px;
         height: 80px;
+        font-size: 40px;
     }
 </style>
 <body>
     <table align="center">
         <tr>
-            <td><button id="button" onclick="mark(0)">.</button></td>
+            <td><button id="button" onclick="mark(0)"></button></td>
             <td><button id="button" onclick="mark(1)"></button></td>
             <td><button id="button" onclick="mark(2)"></button></td>
         </tr>
@@ -42,5 +43,6 @@
         button.setAttribute('disabled', 'true');
         flag = !flag; 
     }
+    
 </script>
 </html>

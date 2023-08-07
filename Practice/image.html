@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="../Lab6/img/hinh0.jpg" alt="" 
+        onmouseover="mouseon()"
+        onmouseleave="mouseout()"
+        name="hinh"
+    >
+</body>
+<script>
+    function mouseon() {
+        document.hinh.src = "../Lab6/img/hinh1.jpg";
+    }
+    function mouseout() {
+        document.hinh.src = "../Lab6/img/hinh0.jpg";
+    }
+</script>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>s
+    
+    <div class="container">
+        <h1>Video player</h1>
+        <div id="player-container">
+            <video id="myplayer">
+                <source src="chicken.mp4" type="video/mp4">
+                Your browser does not support HTML5 Video.
+            </video>
+        </div>
+        <div id="control">
+            <button onclick="playPause()">Play/Pause</button>
+            <button onclick="stopVideo()">Stop</button>
+            <button onclick="replayVideo()">Replay</button>
+            <button onclick="increaseVoume()">Volume (+)</button>
+            <button onclick="decreaseVolume()">Volume (-)</button>
+            <button onclick="muteVolume()">Mute/Unmute</button>
+        </div>
+    </div>
+</body>
+<script>
+    var player = document.getElementById('myplayer');
+
+    function playPause() {
+        if (player.paused) {player.play();}
+        else {player.pause();}
+    }
+
+    function stopVideo() {
+        player.pause();
+        if (player.currentTime) {player.currentTime = 0;}
+    }
+
+    function replayVideo() {
+        player.currentTime = 0;
+        player.play();
+    }
+
+    function increaseVoume() {
+        if (player.volume < 1) {
+            player.volume = parseFloat(player.volume + 0.1).toFixed(1);
+        }
+    }
+
+    function decreaseVoume() {
+        if (player.volume > 0) {
+            player.volume = parseFloat(player.volume - 0.1).toFixed(1);
+        }
+    }
+
+    function muteVolume() {
+        if (player.muted) {
+            player.muted = false;
+        } else {
+            player.muted = true;
+        }
+    }
+</script>
+</html>

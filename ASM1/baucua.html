@@ -262,25 +262,33 @@
         document.getElementById("nut3").src = hinhdiem[xucxac[2]];
         //Xét đặt
         
+        console.log(tongtiendat);
         for (var i = 0; i < 3; i++) {
                 if (xucxac[i] == "1") {
                     tienthang += (tienDat1);
+                    tongtiendat -= tienDat1;
                 } else if (xucxac[i] == "2") {
                     tienthang += (tienDat2);
+                    tongtiendat -= tienDat2;
                 } else if (xucxac[i] == "3") {
                     tienthang += (tienDat3);
+                    tongtiendat -= tienDat3;
                 } else if (xucxac[i] == "4") {
                     tienthang += (tienDat4);
+                    tongtiendat -= tienDat4;
                 } else if (xucxac[i] == "5") {
                     tienthang += (tienDat5);
+                    tongtiendat -= tienDat5;
                 } else if (xucxac[i] == "6") {
                     tienthang += (tienDat6);
+                    tongtiendat -= tienDat6;
                 }
         }
         console.log(tongtiendat);
         console.log(tienthang);
         if (tienthang >= tongtiendat ) {
-            money += tienthang;
+            money += (tienthang - tongtiendat);
+            
             document.getElementById("money").innerHTML = money;
         } else {
             money -= tongtiendat;

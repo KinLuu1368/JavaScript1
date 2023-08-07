@@ -1,26 +1,63 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game</title>
+    <script src="dangnhap.js"></script>
 </head>
 <style>
     body {
         width: 100%;
-        min-width: 1400px;
+        min-width: 1670px;
         margin: 0;
         padding: 0;
         font-size: 25px;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
-    .container {
-        width: 1000px;
-        margin-left: 25%;
-        margin-right: 25%;
+
+    header {
+        margin-top: 0px;
+        padding: 10px;
+        height: 100px;
+        background-color: rgb(28, 209, 158);
     }
+
+    header>h1 {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    article {
+        background-color: antiquewhite;
+        height: 35px;
+    }
+
+    article>a {
+        text-decoration: none;
+        margin-left: 30px;
+        color: black;
+        font-weight: bold;
+    }
+
+    article>a:hover {
+        color: brown;
+    }
+
+    .outContainer {
+        width: 56%;
+        min-width: 1000px;
+        float: left;
+    }
+
+
+    .container {
+        min-width: 1000px;
+        max-width: 1000px;
+    }
+
     iframe {
         width: 980px;
         min-width: 600px;
@@ -30,54 +67,207 @@
         border-right: 10px solid black;
         border-bottom: 10px solid black;
     }
-    .container> h1{
+
+    .container>h1 {
         text-align: center;
     }
+
     .taskbar {
-        width: 100%; 
-        height: 30px; 
+        width: 100%;
+        height: 30px;
         background-color: rgb(13, 62, 62);
     }
-    .taskbar> button#nutnhan {
-        position: absolute; 
-        float:left; 
-        margin-top: 5px; 
-        margin-left: 10px; 
-        border-radius: 50px; 
-        background-color: red; 
-        padding-bottom: 2px; 
-        padding-right: 6px; 
+
+    .taskbar>button#nutnhan {
+        position: absolute;
+        float: left;
+        margin-top: 5px;
+        margin-left: 10px;
+        border-radius: 50px;
+        background-color: red;
+        padding-bottom: 2px;
+        padding-right: 6px;
         border: 1px solid snow;
     }
 
-    .taskbar> button> a {
+    .taskbar>button>a {
         text-decoration: none;
-        font-weight: bold; 
+        font-weight: bold;
         color: white;
     }
 
-    .taskbar> button#dangxuat {
-        position: absolute; 
-        float:left; 
-        margin-top: 5px; 
-        margin-left: 40px; 
-        background-color: transparent; 
-        padding-bottom: 2px; 
-        padding-right: 6px; 
+    .taskbar>button#dangxuat {
+        position: absolute;
+        float: left;
+        margin-top: 5px;
+        margin-left: 40px;
+        background-color: transparent;
+        padding-bottom: 2px;
+        padding-right: 6px;
         border: 1px solid snow;
     }
 
+    /*Đăng Nhập*/
+    .outdntrai {
+        width: 19%;
+        background-color: rgb(205, 205, 205); 
+        height: 600px; 
+        margin-left: 20px; 
+        margin-top: 10px; 
+        border-radius: 2px;
+        float: left;
+    }
+
+    .dangnhap>h1 {
+        text-align: center;
+        font-size: 45px;
+        padding-top: 30px;
+    }
+
+    .formDN>form>input.tkmk {
+        margin-top: 30px;
+        height: 40px;
+        width: 80%;
+        margin-left: 8%;
+        border: 0;
+        padding-left: 20px;
+        border-radius: 20px;
+        font-size: 20px;
+    }
+
+    .formDN>form>input.tkmk:focus {
+        border: 0px solid transparent;
+        outline: none;
+        background-color: rgb(240, 255, 255);
+    }
+
+    .formDN>form>input[type="checkbox"] {
+        margin-left: 12%;
+        margin-top: 45px;
+    }
+
+    .formDN>form>input[type="checkbox"]>span {
+        font-weight: bold;
+    }
+
+    .btn {
+        height: 50px;
+        width: 150px;
+        margin-left: 20%;
+        background-color: azure;
+        border-radius: 30px;
+        margin-top: 30px;
+    }
+
+    .btn>button {
+        height: 50px;
+        width: 240px;
+        border-radius: 30px;
+        border: 0;
+    }
+
+    .btn>button>a {
+        font-size: 20px;
+        padding: 12px 54px;
+        border-radius: 30px;
+        text-decoration: none;
+        color: black;
+    }
 </style>
+
 <body>
-    
-     <div class="container">
-        <h1>CHƠI VUI VUI CHƠI</h1>
-        <div class="taskbar">
-            <button id="nutnhan" onclick=""><a href="modau.html" target="window">x</a></button>
-            <button id="dangxuat"><a href="dangnhap.html" target="window">Log Out</a></button>
-        </div>      
-        <iframe src="dangnhap.html" id="window" name="window" frameborder="0"></iframe>
-     </div>
+    <header>
+        <h1>VUI CHƠI CHƠI VUI</h1>
+    </header>
+
+    <article>
+        <a href="baucua.html" target="window">GAME BẦU CUA</a>
+        <a href="taixiu.html" target="window">GAME TÀI XỈU</a>
+        <a href="gamehay.html">GAME HAY</a>
+        <p style="float: right; margin-right: 40px; margin-top: 0px;" id="username">Đăng Nhập</p>
+    </article>
+
+    <div class="tonghop" style="margin-top: 25px;">
+
+    <div class="advertise"
+        style="float: left; margin-left: 30px; margin-right: 30px; width: 15%; height: 600px; margin-top: 30px; background-color: aqua;">
+        <h1 id="quangcao" style="font-size: 60px; text-align: center;">Truy cập 123.com nhận thưởng 800k</h1>
+    </div>
+
+    <div class="outContainer">
+        <div class="container">
+            <div class="taskbar">
+                <button id="nutnhan" onclick=""><a href="modau.html" target="window">x</a></button>
+                <button id="dangxuat"><a href="dangnhap.html" target="window">Log Out</a></button>
+            </div>
+            <iframe src="modau.html" id="window" name="window" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <div class="outdntrai">
+        <div class="dntrai"
+            style="">
+            <div class="dangnhap">
+                <h1>ĐĂNG NHẬP</h1>
+            </div>
+            <div class="formDN">
+                <form>
+                    <input class="tkmk" id="tk" type="text" placeholder="Tên đăng nhập"> <br>
+                    <input class="tkmk" id="mk" type="password" placeholder="Mật Khẩu"><br>
+                    <input type="checkbox" name="" id=""><span>Nhớ mật khẩu?</span>
+                </form>
+            </div>
+            <div class="btn">
+                <button onclick="dangnhap()">ĐĂNG NHẬP</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div style="clear: both;"></div>
+    <footer style="position: absolute; width: 100%;;bottom: 0px; background-color: rgb(43, 216, 132);">
+        <div>
+            <p style="text-align: center;">GAME ASSIGNMENT MADE BY KIENLUU PS27948</p>
+        </div>
+    </footer>
 </body>
+
+<script>
+    var tk = document.getElementById("tk");
+    var mk = document.getElementById("mk");
+    function dangnhap() {
+        if (tk.value == "") {
+            alert("Vui lòng nhập tài khoản!");
+            tk.focus();
+        }
+        if (mk.value == "") {
+            alert("Vui lòng nhập Mật khẩu!");
+            mk.focus();
+        }
+        if (tk.value != "" && mk.value != "") {
+            alert("Hello " + tk.value);
+            document.getElementById('username').innerHTML = 'Hello, '+ tk.value;
+        }
+    }
+
+    var textAd = [
+        'Truy cập 123.com nhận thưởng 800k',
+        'Coi phim ma cười thả ga tại 123.net',
+        'Nạp game 200k tặng 100% thành 400k',
+        'Chơi bầu cua nhận thưởng vip tại 123.net'
+    ]
+    var textHientai = 0;
+    function chay() {
+        timer = setInterval(function() {
+            textHientai++;
+            console.log(textHientai);
+            if (textHientai > (textAd.length -1)) {
+                textHientai = 0;
+            }
+            document.getElementById('quangcao').innerHTML = textAd[textHientai];
+        },5000);
+    };
+    document.querySelector(".advertise").setAttribute(chay(),3000);
+</script>
 
 </html>
